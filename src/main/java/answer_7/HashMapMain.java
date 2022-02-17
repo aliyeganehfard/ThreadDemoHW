@@ -16,7 +16,7 @@ public class HashMapMain {
             long before = System.currentTimeMillis();
 //          save String to List<Character>
             saveToList(letters, words[0]);
-            System.out.println("length : "+getLength(letters));
+
 
             insert(fillInTheSet(letters, words[0]));
             long after = System.currentTimeMillis();
@@ -61,9 +61,10 @@ public class HashMapMain {
         for (var str : set) {
             queue.offer(str);
         }
-        ExecutorService executorService = Executors.newFixedThreadPool(4);
+        System.out.println("length : "+queue.size());
+        ExecutorService executorService = Executors.newFixedThreadPool(1);
 
-        for (int i = 0; i <4; i++) {
+        for (int i = 0; i <1; i++) {
             executorService.execute(new Inserter(queue,entityService));
         }
 
